@@ -20,3 +20,5 @@ WORKDIR ${DIR}
 # Install (with linked local modules)
 RUN bundle install -j 8
 
+# Default Command
+CMD ruby ./lib/main.rb
