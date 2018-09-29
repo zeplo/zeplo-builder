@@ -19,5 +19,6 @@ steps:
 
 | Ref  | Language | Build Notes / Requirements |
 |:------|:------------|:---- |
-| [nodejs](builders/nodejs/Dockerfile) | Javascript | Will run the file specified under the `main` property of `package.json` if present, otherwise it will run `index.js`.  |
-| [go](builders/go/Dockerfile) | Go | Will compile the `main.go` file at the root of the directory.  |
+| docker | Dockerfile | Will run the custom `Dockerfile` you provide in the root directory  |
+| [nodejs](builders/nodejs/Dockerfile) | Javascript | Runs the file specified under the `main` property of `package.json` if present, otherwise it will run `index.js`.  |
+| [go](builders/go/Dockerfile) | Go | Compiles the `main.go` file at the root of the directory.  |
