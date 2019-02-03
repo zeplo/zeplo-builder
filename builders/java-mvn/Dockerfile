@@ -1,4 +1,4 @@
-FROM maven:3.5-jdk-8-slim AS build
+FROM maven:3.6.0-jdk-8-alpine AS build
 
 # Use default workspace
 WORKDIR /app
@@ -9,7 +9,7 @@ ARG DIR=./
 
 COPY ./bundle .
 
-# Move to the step directory (as requested by the user)
+# Move to service dir (if provided)
 WORKDIR ${DIR}
 
 # Package
@@ -17,7 +17,6 @@ RUN mvn package -q
 
 # Move it to fixed location
 RUN mkdir /target && cp ./target/app.jar /target/app.jar
-
 
 FROM saturnism/graal:1.0.0-rc2 AS graal
 

@@ -1,31 +1,29 @@
-FROM node:10.6.0
+FROM node:11.9.0-alpine
 
 # Use default workspace
 WORKDIR /app
 
-# Allow env overwrite for image
-ARG ENV=production
-
 # Directory for running build
 ARG DIR=./
 
-COPY ./bundle .
+ARG ENV=production
 
-# Set to production, we can always overwrite this
-ENV NODE_ENV ${ENV}
+COPY . .
 
-# Move to the step directory (as requested by the user)
+# Move to service dir (if provided)
 WORKDIR ${DIR}
 
 # Install (with linked local modules)
-RUN npm install
-
+RUN bash -c "[ -f ./package.json ] && npm install || echo No package.json found"
 
 # Add dependency source files
-RUN npm build
+RUN bash -c "[ -f ./package.json ] &&  npm build || echo"
 
 # Safe user
 USER node
 
+# Set to production, we can always overwrite this
+ENV NODE_ENV ${ENV}
+
 # Serve, for a pure execution
-CMD npm start
+CMD bash -c "[ -f ./package.json ] && npm start || node ./index.js"

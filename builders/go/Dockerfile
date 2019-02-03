@@ -1,4 +1,4 @@
-FROM golang:1.9-alpine as base
+FROM zeplo/golang:1.11.5-alpine3.7 as base
 
 # Use default workspace
 WORKDIR /app
@@ -6,15 +6,16 @@ WORKDIR /app
 # Directory for running build
 ARG DIR=./
 
-COPY ./bundle .
+COPY . .
 
-# Move to the step directory (as requested by the user)
+# Move to service dir (if provided)
 WORKDIR ${DIR}
 
-RUN CGO_ENABLED=0 go build -ldflags "-s -w" -o main
+RUN CGO_ENABLED=0 go build -ldflags "-s -w" -o /main
 
 FROM scratch
 
-COPY --from=base /app/main /go-script
+COPY --from=base /main /go-script
+COPY --from=base /etc/ssl/certs/ /etc/ssl/certs
 
 CMD ["/go-script"]

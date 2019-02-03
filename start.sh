@@ -11,9 +11,8 @@ if [ "$ZEPLO_BUILDER_TYPE" = "docker" ]; then
 	unzip bundle.zip -d /workspace -o
 	rm bundle.zip
 else
-	mkdir -p /workspace/bundle
-	unzip bundle.zip -d /workspace/bundle -o
+	mkdir -p /workspace
+	unzip bundle.zip -d /workspace -o
 	rm bundle.zip
-	cp /builders/$ZEPLO_BUILDER_TYPE/Dockerfile /workspace/Dockerfile
+	cp /builders/$ZEPLO_BUILDER_TYPE/Dockerfile /workspace/Dockerfile -f
 fi
-

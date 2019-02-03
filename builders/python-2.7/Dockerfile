@@ -1,4 +1,4 @@
-FROM zeplo/python:3.7.2-alpine3.7
+FROM zeplo/python:2.7.15-alpine3.7
 
 # Use default workspace
 WORKDIR /app

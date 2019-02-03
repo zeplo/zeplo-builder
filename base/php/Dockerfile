@@ -1,4 +1,4 @@
-FROM php:5-zts-alpine3.7
+FROM php:7.3.1-zts-alpine3.8
 
 COPY ./setup.sh /setup.sh
 

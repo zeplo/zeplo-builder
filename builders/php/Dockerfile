@@ -1,4 +1,4 @@
-FROM zeplo/php:5-zts-alpine3.7
+FROM zeplo/php:7.3.1-zts-alpine3.8
 
 # Use default workspace
 WORKDIR /app
@@ -6,9 +6,9 @@ WORKDIR /app
 # Directory for running build
 ARG DIR=./
 
-COPY ./bundle .
+COPY . .
 
-# Move to the step directory (as requested by the user)
+# Move to service dir (if provided)
 WORKDIR ${DIR}
 
 # Install composer
