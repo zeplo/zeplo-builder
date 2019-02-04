@@ -19,7 +19,7 @@ steps:
 | Ref  | Language | Version | Build Notes / Requirements | Default Command |
 |:---- |:-------- |:--------|:-------------------------- | :-------------- |
 | docker | Dockerfile | - | Will run the custom `Dockerfile` you provide in the root directory.  | - |
-| [nodejs](builders/nodejs/Dockerfile) | Javascript | v11.9.0 | Runs `npm install && npm build`.  | `npm start || node ./index.js` |
+| [nodejs](builders/nodejs/Dockerfile) | Javascript | v11.9.0 | Runs `npm install && npm build` (if package.json exists)  | `npm start` or `node ./index.js` |
 | [go](builders/go/Dockerfile) | Go | v1.11.5 | Compiles the `main.go` file at the root of the directory, and outputs executable as `go-script`. | `/go-script` |
 | [python](builders/python/Dockerfile) | Python | v3.7.2 | Uses `pipenv` to install dependencies from `Pipfile`.  | `python ./src/main.py` |
 | [python-2.7](builders/python-2.7/Dockerfile) | Python | v2.7.15 | Uses `pipenv` to install dependencies from `Pipfile`.  | `python ./src/main.py` |
