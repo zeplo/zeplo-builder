@@ -14,10 +14,10 @@ COPY . .
 WORKDIR ${DIR}
 
 # Install (with linked local modules)
-RUN bash -c "[ -f ./package.json ] && npm install || echo No package.json found"
+RUN sh -c "[ -f ./package.json ] && npm install || echo No package.json found"
 
 # Add dependency source files
-RUN bash -c "[ -f ./package.json ] &&  npm build || echo"
+RUN sh -c "[ -f ./package.json ] &&  npm build || echo"
 
 # Safe user
 USER node
@@ -26,4 +26,4 @@ USER node
 ENV NODE_ENV ${ENV}
 
 # Serve, for a pure execution
-CMD bash -c "[ -f ./package.json ] && npm start || node ./index.js"
+CMD [ -f ./package.json ] && npm start || node ./index.js
