@@ -1,4 +1,4 @@
-FROM node:11.9.0-alpine
+FROM zeplo/node:11.9.0-alpine
 
 # Use default workspace
 WORKDIR /app

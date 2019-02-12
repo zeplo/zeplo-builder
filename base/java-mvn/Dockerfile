@@ -1,4 +1,4 @@
-FROM ruby:2.6.1-alpine3.8
+FROM maven:3.6.0-jdk-8-alpine
 
 LABEL maintainer="calum@zeplo.io"
 LABEL organization="zeplo"

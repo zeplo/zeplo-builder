@@ -20,7 +20,7 @@ WORKDIR ${DIR}
 # Install (with linked local modules)
 RUN bundle install -j 8
 
-FROM ruby:2.6.1-alpine3.8
+FROM zeplo/ruby:2.6.1-alpine3.8
 
 COPY --from=base /usr/local/bundle /usr/local/bundle
 COPY --from=base /app /app

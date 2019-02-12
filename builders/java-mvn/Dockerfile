@@ -1,4 +1,4 @@
-FROM maven:3.6.0-jdk-8-alpine AS build
+FROM zeplo/java-mvn:3.6.0-jdk-8-alpine AS build
 
 # Use default workspace
 WORKDIR /app
