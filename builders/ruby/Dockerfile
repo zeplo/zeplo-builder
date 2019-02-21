@@ -18,7 +18,7 @@ COPY . .
 WORKDIR ${DIR}
 
 # Install (with linked local modules)
-RUN bundle install -j 8
+RUN sh -c "([ -f ./Gemfile ] && bundle install -j 8) || echo No Gemfile found"
 
 FROM zeplo/ruby:2.6.1-alpine3.8
 
@@ -41,4 +41,4 @@ ARG DIR=./
 WORKDIR ${DIR}
 
 # Default Command
-CMD ruby ./lib/main.rb
+CMD [ -f ./main.rb ] && ruby ./main.rb || ruby ./lib/main.rb
