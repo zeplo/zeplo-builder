@@ -1,7 +1,7 @@
 FROM alpine
 
 LABEL maintainer="calum@zeplo.io"
-LABEL organization ="zeplo"
+LABEL organization="zeplo"
 
 COPY ./start.sh /start.sh
 COPY ./builders /builders
