@@ -12,7 +12,7 @@ COPY . .
 WORKDIR ${DIR}
 
 # Install composer
-RUN composer install
+RUN sh -c "[ -f ./composer.json ] && composer install || echo No composer.json found"
 
 # Serve, for a pure execution
 CMD php main.php
