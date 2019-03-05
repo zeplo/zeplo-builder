@@ -7,10 +7,9 @@ These builders are used to automatically package source code into Docker images 
 The builder type can be specified in the [service definition](https://zeplo.io/docs/service-definition).
 
 ```yaml
-steps:
-  - build:
-      context: "./example/step-2"
-      builder: "nodejs" # `ref` in the table below
+build:
+  context: "./example/step-2"
+  builder: "nodejs" # `ref` in the table below
 ```
 
 
