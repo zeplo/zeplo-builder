@@ -18,5 +18,4 @@ WORKDIR ${DIR}
 RUN sh -c "[ -f ./Pipfile ] && pipenv install --system --deploy || echo No Pipfile found"
 
 # Serve, for a pure execution
-CMD python ./src/main.py
 CMD [ -f ./main.py ] && python ./main.py || python ./src/main.py
