@@ -1,0 +1,4 @@
+#! /bin/bash
+echo --------------------
+echo Build from templates
+echo --------------------
